@@ -1,1 +1,2085 @@
+```html
+<!DOCTYPE html> <!-- HTML5 document -->
+
+<html lang="en"> <!-- Language is English -->
+
+<head> <!-- Information about the webpage -->
+
+    <meta charset="UTF-8"> <!-- Allows the page to display characters correctly -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Helps the website work on different screen sizes -->
+
+    <title>LinkedOUT - Student Profile</title>
+    <!-- Name shown on the browser tab -->
+
+
+    <!-- ==================== CSS ==================== -->
+
+    <style>
+
+        /* Removes default spacing from the webpage */
+        * {
+            box-sizing: border-box;
+        }
+
+
+        /* ==================== MAIN PAGE ==================== */
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f1f5f3;
+            color: #222222;
+        }
+
+
+        /* Keeps the main website centered */
+        main {
+            width: 90%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+
+        /* ==================== HEADER ==================== */
+
+        header {
+            background-color: #005035;
+            color: white;
+            padding: 20px 5%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        header h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+
+        /* Navigation */
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+
+        /* Navigation hover */
+        nav a:hover {
+            color: #f2a900;
+        }
+
+
+        /* ==================== PROFILE ==================== */
+
+        .profile {
+            background-color: white;
+
+            padding: 35px;
+
+            border-radius: 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 35px;
+
+            border: 1px solid #dce5e1;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+
+        /* Profile picture */
+        .profile img {
+            width: 220px;
+            height: 220px;
+
+            /* Makes the picture square */
+            object-fit: cover;
+
+            /* Slightly rounded corners */
+            border-radius: 12px;
+
+            border: 5px solid #005035;
+        }
+
+
+        /* Profile information */
+        .profile-info {
+            flex: 1;
+        }
+
+
+        .profile-info h2 {
+            color: #005035;
+
+            font-size: 36px;
+
+            margin: 0 0 10px 0;
+        }
+
+
+        .profile-info p {
+            margin: 8px 0;
+
+            font-size: 17px;
+        }
+
+
+        /* Career goal */
+        .career-goal {
+            display: inline-block;
+
+            background-color: #e6f2ed;
+
+            color: #005035;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            margin-top: 10px;
+
+            font-weight: bold;
+        }
+
+
+        /* ==================== BUTTONS ==================== */
+
+        button {
+            background-color: #005035;
+
+            color: white;
+
+            border: none;
+
+            padding: 11px 18px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: 14px;
+
+            margin-top: 15px;
+        }
+
+
+        button:hover {
+            background-color: #003d29;
+        }
+
+
+        /* Gold button */
+        .gold-button {
+            background-color: #f2a900;
+
+            color: #222222;
+        }
+
+
+        .gold-button:hover {
+            background-color: #d99400;
+        }
+
+
+        /* ==================== SECTIONS ==================== */
+
+        section {
+            background-color: white;
+
+            margin-top: 25px;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            border: 1px solid #dce5e1;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+
+        /* Section headings */
+        section h2 {
+            color: #005035;
+
+            margin-top: 0;
+
+            font-size: 25px;
+        }
+
+
+        /* ==================== DASHBOARD STATS ==================== */
+
+        .stats {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+
+            margin-top: 20px;
+        }
+
+
+        .stat-card {
+            background-color: #f8faf9;
+
+            border: 1px solid #dce5e1;
+
+            border-radius: 12px;
+
+            padding: 20px;
+
+            text-align: center;
+        }
+
+
+        .stat-number {
+            color: #005035;
+
+            font-size: 32px;
+
+            font-weight: bold;
+
+            margin-bottom: 5px;
+        }
+
+
+        .stat-label {
+            color: #555555;
+
+            font-size: 14px;
+        }
+
+
+        /* ==================== HOW LINKEDOUT WORKS ==================== */
+
+        .steps {
+            display: grid;
+
+            grid-template-columns: repeat(5, 1fr);
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+
+        .step {
+            background-color: #f8faf9;
+
+            border: 1px solid #dce5e1;
+
+            border-top: 5px solid #005035;
+
+            border-radius: 10px;
+
+            padding: 18px;
+
+            text-align: center;
+        }
+
+
+        .step-number {
+            width: 35px;
+
+            height: 35px;
+
+            margin: 0 auto 10px auto;
+
+            background-color: #f2a900;
+
+            color: #222222;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: bold;
+        }
+
+
+        .step h3 {
+            color: #005035;
+
+            font-size: 16px;
+
+            margin: 8px 0;
+        }
+
+
+        .step p {
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+
+        /* ==================== CAREER ROADMAP ==================== */
+
+        .roadmap {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 15px;
+
+            margin-top: 25px;
+        }
+
+
+        .roadmap-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+            background-color: #f8faf9;
+
+            border: 1px solid #dce5e1;
+
+            border-radius: 10px;
+
+            padding: 15px;
+        }
+
+
+        .roadmap-number {
+            min-width: 45px;
+
+            height: 45px;
+
+            border-radius: 50%;
+
+            background-color: #dce5e1;
+
+            color: #555555;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-weight: bold;
+        }
+
+
+        .roadmap-current {
+            background-color: #005035;
+
+            color: white;
+        }
+
+
+        .roadmap-content {
+            flex: 1;
+        }
+
+
+        .roadmap-content h3 {
+            color: #005035;
+
+            margin: 0 0 5px 0;
+        }
+
+
+        .roadmap-content p {
+            margin: 4px 0;
+
+            font-size: 14px;
+        }
+
+
+        /* ==================== CAREER PROGRESS ==================== */
+
+        .progress {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 25px;
+
+            gap: 10px;
+        }
+
+
+        .progress-item {
+            text-align: center;
+
+            flex: 1;
+        }
+
+
+        .progress-circle {
+            width: 45px;
+
+            height: 45px;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background-color: #dce5e1;
+
+            color: #555;
+
+            font-weight: bold;
+        }
+
+
+        /* Current year */
+        .current {
+            background-color: #005035;
+
+            color: white;
+        }
+
+
+        .progress-item p {
+            font-size: 13px;
+        }
+
+
+        /* ==================== PROJECTS ==================== */
+
+        .projects {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+
+        .project-card {
+            background-color: #f8faf9;
+
+            border: 1px solid #dce5e1;
+
+            border-top: 5px solid #005035;
+
+            padding: 22px;
+
+            border-radius: 12px;
+        }
+
+
+        .project-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 80, 53, 0.12);
+        }
+
+
+        .project-card h3 {
+            color: #005035;
+
+            margin-top: 0;
+        }
+
+
+        /* Project information */
+        .project-info {
+            margin: 10px 0;
+        }
+
+
+        /* Project rating */
+        .project-rating {
+            color: #f2a900;
+
+            font-size: 18px;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* Resume ready label */
+        .resume-ready {
+            display: inline-block;
+
+            background-color: #e6f2ed;
+
+            color: #005035;
+
+            padding: 6px 10px;
+
+            border-radius: 15px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            margin-top: 5px;
+        }
+
+
+        /* ==================== SKILLS ==================== */
+
+        .skill-category {
+            margin-bottom: 25px;
+        }
+
+
+        .skill-category h3 {
+            color: #005035;
+
+            margin-bottom: 10px;
+        }
+
+
+        .skills {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+
+        .skill {
+            background-color: #e6f2ed;
+
+            color: #005035;
+
+            padding: 9px 15px;
+
+            border-radius: 20px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+
+        /* ==================== CANVAS ==================== */
+
+        .canvas-box {
+            background-color: #f8faf9;
+
+            border: 2px dashed #005035;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            text-align: center;
+        }
+
+
+        /* Canvas connected status */
+        .canvas-status {
+            display: inline-block;
+
+            background-color: #e6f2ed;
+
+            color: #005035;
+
+            padding: 8px 14px;
+
+            border-radius: 20px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+
+        .canvas-stats {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 40px;
+
+            margin-top: 20px;
+        }
+
+
+        .canvas-stat strong {
+            display: block;
+
+            color: #005035;
+
+            font-size: 22px;
+        }
+
+
+        .canvas-stat span {
+            font-size: 12px;
+
+            color: #555555;
+        }
+
+
+        /* ==================== AI ANALYSIS ==================== */
+
+        .ai-box {
+            background-color: #f8faf9;
+
+            border-left: 5px solid #f2a900;
+
+            padding: 20px;
+
+            border-radius: 8px;
+        }
+
+
+        .ai-box h3 {
+            color: #005035;
+        }
+
+
+        /* Before and after area */
+        .before-after {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+
+            margin-top: 20px;
+        }
+
+
+        .before-box,
+        .after-box {
+            padding: 20px;
+
+            border-radius: 10px;
+        }
+
+
+        .before-box {
+            background-color: #f3f3f3;
+
+            border: 1px solid #dddddd;
+        }
+
+
+        .after-box {
+            background-color: #e6f2ed;
+
+            border: 1px solid #b9d8ca;
+        }
+
+
+        .before-box h4,
+        .after-box h4 {
+            margin-top: 0;
+
+            color: #005035;
+        }
+
+
+        /* ==================== CAREER READINESS ==================== */
+
+        .readiness-item {
+            margin-bottom: 20px;
+        }
+
+
+        .readiness-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 7px;
+        }
+
+
+        .readiness-header strong {
+            color: #005035;
+        }
+
+
+        .progress-bar {
+            width: 100%;
+
+            height: 12px;
+
+            background-color: #dce5e1;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+
+        .progress-fill {
+            height: 100%;
+
+            background-color: #005035;
+
+            border-radius: 10px;
+        }
+
+
+        /* Different readiness percentages */
+        .skills-progress {
+            width: 80%;
+        }
+
+
+        .projects-progress {
+            width: 70%;
+        }
+
+
+        .resume-progress {
+            width: 55%;
+        }
+
+
+        .portfolio-progress {
+            width: 45%;
+        }
+
+
+        .experience-progress {
+            width: 30%;
+        }
+
+
+        /* ==================== RESUME ==================== */
+
+        .resume-box {
+            background-color: #f8faf9;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            border: 1px solid #dce5e1;
+        }
+
+
+        .resume-item {
+            border-left: 4px solid #005035;
+
+            padding-left: 15px;
+
+            margin-top: 20px;
+        }
+
+
+        .resume-item h3 {
+            color: #005035;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* ==================== FOOTER ==================== */
+
+        footer {
+            background-color: #005035;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px;
+
+            margin-top: 40px;
+        }
+
+
+        footer p {
+            margin: 5px;
+        }
+
+
+        /* ==================== MOBILE ==================== */
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            nav {
+                gap: 15px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+
+            .profile {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+
+            .profile img {
+                width: 180px;
+
+                height: 180px;
+            }
+
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+
+            .before-after {
+                grid-template-columns: 1fr;
+            }
+
+
+            .progress {
+                flex-direction: column;
+            }
+
+
+            .canvas-stats {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================== NAVIGATION ==================== -->
+
+    <header>
+
+        <h1>LinkedOUT</h1>
+
+        <nav>
+
+            <a href="#">Dashboard</a>
+
+            <a href="#">Projects</a>
+
+            <a href="#">Skills</a>
+
+            <a href="#">Resume</a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+
+    <main>
+
+
+        <!-- ==================== STUDENT PROFILE ==================== -->
+
+        <div class="profile">
+
+            <img src="profile.jpg"
+                 alt="Student profile photo">
+
+            <div class="profile-info">
+
+                <h2>Jarrelle Moten</h2>
+
+                <p>
+                    <strong>Computer Science</strong>
+                </p>
+
+                <p>
+                    UNC Charlotte
+                </p>
+
+                <p>
+                    Junior
+                </p>
+
+                <div class="career-goal">
+
+                    🎯 Software Engineer
+
+                </div>
+
+                <br>
+
+                <button>
+                    Edit Profile
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================== DASHBOARD STATS ==================== -->
+
+        <section>
+
+            <h2>My Career Dashboard</h2>
+
+            <p>
+                A quick look at your progress toward becoming
+                career ready.
+            </p>
+
+
+            <div class="stats">
+
+
+                <!-- Number of projects -->
+
+                <div class="stat-card">
+
+                    <div class="stat-number">
+                        8
+                    </div>
+
+                    <div class="stat-label">
+                        Projects
+                    </div>
+
+                </div>
+
+
+                <!-- Number of skills -->
+
+                <div class="stat-card">
+
+                    <div class="stat-number">
+                        12
+                    </div>
+
+                    <div class="stat-label">
+                        Skills Identified
+                    </div>
+
+                </div>
+
+
+                <!-- Resume items -->
+
+                <div class="stat-card">
+
+                    <div class="stat-number">
+                        3
+                    </div>
+
+                    <div class="stat-label">
+                        Resume Items
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== HOW LINKEDOUT WORKS ==================== -->
+
+        <section>
+
+            <h2>How LinkedOUT Works</h2>
+
+            <p>
+                LinkedOUT turns your college work into
+                professional experience.
+            </p>
+
+
+            <div class="steps">
+
+
+                <!-- Step 1 -->
+
+                <div class="step">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <h3>Create Profile</h3>
+
+                    <p>
+                        Add your name, major, college,
+                        year, and career goal.
+                    </p>
+
+                </div>
+
+
+                <!-- Step 2 -->
+
+                <div class="step">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <h3>Connect Canvas</h3>
+
+                    <p>
+                        Link Canvas so LinkedOUT can
+                        discover your coursework.
+                    </p>
+
+                </div>
+
+
+                <!-- Step 3 -->
+
+                <div class="step">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <h3>Discover Projects</h3>
+
+                    <p>
+                        LinkedOUT organizes projects
+                        from your college courses.
+                    </p>
+
+                </div>
+
+
+                <!-- Step 4 -->
+
+                <div class="step">
+
+                    <div class="step-number">
+                        4
+                    </div>
+
+                    <h3>AI Analysis</h3>
+
+                    <p>
+                        AI identifies technologies,
+                        skills, and accomplishments.
+                    </p>
+
+                </div>
+
+
+                <!-- Step 5 -->
+
+                <div class="step">
+
+                    <div class="step-number">
+                        5
+                    </div>
+
+                    <h3>Build Resume</h3>
+
+                    <p>
+                        Turn your projects into
+                        professional resume experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== CAREER JOURNEY ==================== -->
+
+        <section>
+
+            <h2>My Career Journey</h2>
+
+            <p>
+                Keep building your experience throughout college.
+            </p>
+
+
+            <div class="progress">
+
+                <div class="progress-item">
+
+                    <div class="progress-circle">
+                        ✓
+                    </div>
+
+                    <p>Freshman</p>
+
+                </div>
+
+
+                <div class="progress-item">
+
+                    <div class="progress-circle">
+                        ✓
+                    </div>
+
+                    <p>Sophomore</p>
+
+                </div>
+
+
+                <div class="progress-item">
+
+                    <div class="progress-circle current">
+                        3
+                    </div>
+
+                    <p>Junior</p>
+
+                </div>
+
+
+                <div class="progress-item">
+
+                    <div class="progress-circle">
+                        4
+                    </div>
+
+                    <p>Senior</p>
+
+                </div>
+
+
+                <div class="progress-item">
+
+                    <div class="progress-circle">
+                        ★
+                    </div>
+
+                    <p>Job Candidate</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== CAREER ROADMAP ==================== -->
+
+        <section>
+
+            <h2>My Career Roadmap</h2>
+
+            <p>
+                Build your career step-by-step throughout college.
+            </p>
+
+
+            <div class="roadmap">
+
+
+                <!-- Freshman -->
+
+                <div class="roadmap-item">
+
+                    <div class="roadmap-number">
+                        ✓
+                    </div>
+
+                    <div class="roadmap-content">
+
+                        <h3>Freshman Year</h3>
+
+                        <p>
+                            ✓ Create your LinkedOUT profile
+                        </p>
+
+                        <p>
+                            ✓ Connect Canvas
+                        </p>
+
+                        <p>
+                            ✓ Start collecting projects
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Sophomore -->
+
+                <div class="roadmap-item">
+
+                    <div class="roadmap-number">
+                        ✓
+                    </div>
+
+                    <div class="roadmap-content">
+
+                        <h3>Sophomore Year</h3>
+
+                        <p>
+                            ✓ Build technical skills
+                        </p>
+
+                        <p>
+                            ✓ Add major projects
+                        </p>
+
+                        <p>
+                            ○ Start GitHub portfolio
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Junior -->
+
+                <div class="roadmap-item">
+
+                    <div class="roadmap-number roadmap-current">
+                        3
+                    </div>
+
+                    <div class="roadmap-content">
+
+                        <h3>Junior Year</h3>
+
+                        <p>
+                            ✓ Build your resume
+                        </p>
+
+                        <p>
+                            ○ Build professional portfolio
+                        </p>
+
+                        <p>
+                            ○ Apply for internships
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Senior -->
+
+                <div class="roadmap-item">
+
+                    <div class="roadmap-number">
+                        4
+                    </div>
+
+                    <div class="roadmap-content">
+
+                        <h3>Senior Year</h3>
+
+                        <p>
+                            ○ Finalize resume
+                        </p>
+
+                        <p>
+                            ○ Apply for software engineering jobs
+                        </p>
+
+                        <p>
+                            ○ Prepare for interviews
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Job Candidate -->
+
+                <div class="roadmap-item">
+
+                    <div class="roadmap-number">
+                        ★
+                    </div>
+
+                    <div class="roadmap-content">
+
+                        <h3>Job Candidate</h3>
+
+                        <p>
+                            ○ Professional profile complete
+                        </p>
+
+                        <p>
+                            ○ Portfolio complete
+                        </p>
+
+                        <p>
+                            ○ Ready to apply for jobs
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== PROJECTS ==================== -->
+
+        <section>
+
+            <h2>My Projects</h2>
+
+            <p>
+                Projects discovered from your college experience.
+            </p>
+
+
+            <div class="projects">
+
+
+                <!-- ==================== PROJECT 1 ==================== -->
+
+                <div class="project-card">
+
+                    <h3>
+                        Student Management System
+                    </h3>
+
+
+                    <p class="project-info">
+                        <strong>Course:</strong>
+                        College Programming Course
+                    </p>
+
+
+                    <p class="project-info">
+                        <strong>Technology:</strong>
+                        Java
+                    </p>
+
+
+                    <p>
+                        <strong>Skills:</strong>
+                    </p>
+
+
+                    <div class="skills">
+
+                        <span class="skill">
+                            Java
+                        </span>
+
+                        <span class="skill">
+                            OOP
+                        </span>
+
+                        <span class="skill">
+                            Data Structures
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        <strong>Career Relevance:</strong>
+                    </p>
+
+
+                    <div class="project-rating">
+                        ★★★★☆
+                    </div>
+
+
+                    <span class="resume-ready">
+                        ✓ Resume Ready
+                    </span>
+
+
+                    <br>
+
+
+                    <button>
+                        View Project
+                    </button>
+
+
+                    <button class="gold-button">
+                        Add to Resume
+                    </button>
+
+                </div>
+
+
+
+                <!-- ==================== PROJECT 2 ==================== -->
+
+                <div class="project-card">
+
+                    <h3>
+                        Web Development Project
+                    </h3>
+
+
+                    <p class="project-info">
+                        <strong>Course:</strong>
+                        Web Development Course
+                    </p>
+
+
+                    <p class="project-info">
+                        <strong>Technology:</strong>
+                        HTML, CSS, JavaScript
+                    </p>
+
+
+                    <p>
+                        <strong>Skills:</strong>
+                    </p>
+
+
+                    <div class="skills">
+
+                        <span class="skill">
+                            HTML
+                        </span>
+
+                        <span class="skill">
+                            CSS
+                        </span>
+
+                        <span class="skill">
+                            JavaScript
+                        </span>
+
+                    </div>
+
+
+                    <p>
+                        <strong>Career Relevance:</strong>
+                    </p>
+
+
+                    <div class="project-rating">
+                        ★★★★☆
+                    </div>
+
+
+                    <span class="resume-ready">
+                        ✓ Resume Ready
+                    </span>
+
+
+                    <br>
+
+
+                    <button>
+                        View Project
+                    </button>
+
+
+                    <button class="gold-button">
+                        Add to Resume
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <button class="gold-button">
+                + Add Project
+            </button>
+
+        </section>
+
+
+
+        <!-- ==================== SKILLS ==================== -->
+
+        <section>
+
+            <h2>Skills I've Developed</h2>
+
+            <p>
+                Skills identified from your coursework and projects.
+            </p>
+
+
+            <!-- Programming skills -->
+
+            <div class="skill-category">
+
+                <h3>
+                    Programming
+                </h3>
+
+                <div class="skills">
+
+                    <span class="skill">
+                        Java
+                    </span>
+
+                    <span class="skill">
+                        C++
+                    </span>
+
+                    <span class="skill">
+                        Python
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Development skills -->
+
+            <div class="skill-category">
+
+                <h3>
+                    Software Development
+                </h3>
+
+                <div class="skills">
+
+                    <span class="skill">
+                        Web Development
+                    </span>
+
+                    <span class="skill">
+                        Git / GitHub
+                    </span>
+
+                    <span class="skill">
+                        Database Development
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Computer science skills -->
+
+            <div class="skill-category">
+
+                <h3>
+                    Computer Science
+                </h3>
+
+                <div class="skills">
+
+                    <span class="skill">
+                        Data Structures
+                    </span>
+
+                    <span class="skill">
+                        Algorithms
+                    </span>
+
+                    <span class="skill">
+                        Object-Oriented Programming
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Professional skills -->
+
+            <div class="skill-category">
+
+                <h3>
+                    Professional Skills
+                </h3>
+
+                <div class="skills">
+
+                    <span class="skill">
+                        Problem Solving
+                    </span>
+
+                    <span class="skill">
+                        Teamwork
+                    </span>
+
+                    <span class="skill">
+                        Project Management
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== CANVAS ==================== -->
+
+        <section>
+
+            <h2>Canvas Connection</h2>
+
+            <div class="canvas-box">
+
+                <div class="canvas-status">
+                    ✓ Canvas Connected
+                </div>
+
+
+                <p>
+                    LinkedOUT is connected to your Canvas account
+                    and can discover relevant coursework.
+                </p>
+
+
+                <div class="canvas-stats">
+
+
+                    <div class="canvas-stat">
+
+                        <strong>
+                            12
+                        </strong>
+
+                        <span>
+                            Courses Found
+                        </span>
+
+                    </div>
+
+
+                    <div class="canvas-stat">
+
+                        <strong>
+                            34
+                        </strong>
+
+                        <span>
+                            Assignments Found
+                        </span>
+
+                    </div>
+
+
+                    <div class="canvas-stat">
+
+                        <strong>
+                            8
+                        </strong>
+
+                        <span>
+                            Projects Identified
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button>
+                    Sync Canvas
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== AI ANALYSIS ==================== -->
+
+        <section>
+
+            <h2>AI Project Analysis</h2>
+
+
+            <div class="ai-box">
+
+                <h3>
+                    Student Management System
+                </h3>
+
+
+                <p>
+                    LinkedOUT's AI analyzed your project and
+                    identified skills that could be valuable
+                    to employers.
+                </p>
+
+
+                <!-- Before and After -->
+
+                <div class="before-after">
+
+
+                    <!-- Original student description -->
+
+                    <div class="before-box">
+
+                        <h4>
+                            Before
+                        </h4>
+
+                        <p>
+                            "Made a Java program for a class
+                            assignment that manages students."
+                        </p>
+
+                    </div>
+
+
+                    <!-- AI generated description -->
+
+                    <div class="after-box">
+
+                        <h4>
+                            After
+                        </h4>
+
+                        <p>
+                            "Developed a Java-based student
+                            management system using object-oriented
+                            programming to manage student information
+                            and course enrollments."
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+                    <strong>Skills Identified:</strong>
+                </p>
+
+
+                <div class="skills">
+
+                    <span class="skill">
+                        Java
+                    </span>
+
+                    <span class="skill">
+                        Object-Oriented Programming
+                    </span>
+
+                    <span class="skill">
+                        Data Structures
+                    </span>
+
+                    <span class="skill">
+                        Problem Solving
+                    </span>
+
+                </div>
+
+
+                <p>
+                    <strong>
+                        Why this project matters:
+                    </strong>
+                </p>
+
+
+                <p>
+                    This project demonstrates the ability to
+                    develop software, organize data, use
+                    object-oriented programming, and solve
+                    programming problems.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== CAREER READINESS ==================== -->
+
+        <section>
+
+            <h2>Career Readiness</h2>
+
+            <p>
+                See how prepared your current college experience
+                is for your career goals.
+            </p>
+
+
+            <!-- Skills -->
+
+            <div class="readiness-item">
+
+                <div class="readiness-header">
+
+                    <strong>
+                        Technical Skills
+                    </strong>
+
+                    <span>
+                        80%
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill skills-progress">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Projects -->
+
+            <div class="readiness-item">
+
+                <div class="readiness-header">
+
+                    <strong>
+                        Projects
+                    </strong>
+
+                    <span>
+                        70%
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill projects-progress">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Resume -->
+
+            <div class="readiness-item">
+
+                <div class="readiness-header">
+
+                    <strong>
+                        Resume
+                    </strong>
+
+                    <span>
+                        55%
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill resume-progress">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Portfolio -->
+
+            <div class="readiness-item">
+
+                <div class="readiness-header">
+
+                    <strong>
+                        Portfolio
+                    </strong>
+
+                    <span>
+                        45%
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill portfolio-progress">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Experience -->
+
+            <div class="readiness-item">
+
+                <div class="readiness-header">
+
+                    <strong>
+                        Professional Experience
+                    </strong>
+
+                    <span>
+                        30%
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill experience-progress">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================== RESUME ==================== -->
+
+        <section>
+
+            <h2>My Resume</h2>
+
+            <div class="resume-box">
+
+                <p>
+                    LinkedOUT uses your projects and skills to
+                    help build your professional resume.
+                </p>
+
+
+                <!-- Resume project -->
+
+                <div class="resume-item">
+
+                    <h3>
+                        Student Management System
+                    </h3>
+
+                    <p>
+                        Developed a Java-based student management
+                        system using object-oriented programming
+                        to manage student information and course
+                        enrollments.
+                    </p>
+
+                </div>
+
+
+                <!-- Resume project -->
+
+                <div class="resume-item">
+
+                    <h3>
+                        Web Development Project
+                    </h3>
+
+                    <p>
+                        Developed a responsive website using HTML,
+                        CSS, and JavaScript to create an interactive
+                        web experience.
+                    </p>
+
+                </div>
+
+
+                <button>
+                    View Resume
+                </button>
+
+
+                <button class="gold-button">
+                    Generate Resume
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==================== FOOTER ==================== -->
+
+    <footer>
+
+        <p>
+            <strong>LinkedOUT</strong>
+        </p>
+
+        <p>
+            Turn your college work into career opportunities.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
+```
 
